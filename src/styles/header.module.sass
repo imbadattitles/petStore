@@ -1,0 +1,67 @@
+.main 
+    margin: auto 
+    max-width: 1400px
+    padding: 30px 20px 30px 20px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    column-gap: 50px
+    border-bottom: 1px solid silver
+    margin-bottom: 50px
+    background: whitesmoke
+
+.Navigation
+    display: flex
+    
+    a
+        text-decoration: none
+        color: grey
+        margin-right: 50px
+        font-size: 20px
+
+.cartIcon
+    position: relative
+    margin-left: auto
+    font-size: 20px
+    width: 60px
+    height: 50px
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: 0px 0px
+    margin-bottom: -20px
+
+.cartLength
+    position: absolute
+    right: 0px
+    bottom: 0px
+    background: white 
+    padding: 3px 
+    border-radius: 50px
+    border: 1px solid grey
+
+
+.closeModal
+    display: none
+    position: fixed
+    background: none
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 99  
+
+.modal
+    position: absolute
+    min-width: 300px
+    top: 20px
+    right: 70px
+    background: white
+    padding: 20px
+    border-radius: 10px
+    border: 1px solid silver
+    z-index: 100
+    max-height: 600px
+    overflow: scroll
+    overflow-x: hidden
+    .title
+        text-align: center
