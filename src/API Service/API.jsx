@@ -53,13 +53,8 @@ export const fetchSimiliar = async ({item, dispatch, setSimilarGoods}) => {
     }  
 }
 export const fetchUsers = async ({dispatch}) => {
-    dispatch(isSimilarLoading(true)) 
-    try {
-        fetch(`https://6475381ae607ba4797dbb5ea.mockapi.io/photos?search=${item.category}`).then(res => res.json()).then(json => {
-        setSimilarGoods(json)
-        dispatch(isSimilarLoading(false))
+        fetch(`https://imbadattitles.com/api.php`).then(res => res.json()).then(json => {
+        console.log(json)
         })
-    } catch (e) {
-        console.log(e);
-    }  
+
 }
