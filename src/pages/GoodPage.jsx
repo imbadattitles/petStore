@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import GoodsItem from '../components/GoodsItem'
-import { fetchItem, fetchSimiliar, fetchUsers} from '../API Service/API'
+import { fetchItem, fetchSimiliar} from '../API Service/API'
 import { inCart } from '../Hooks/CartHooks';
 import SkeletonProductInfo from '../components/Skeleton/SkeletonProductInfo';
 import SkeletonProductSimiliar from '../components/Skeleton/SkeletonProductSimiliar';
@@ -35,8 +35,6 @@ const GoodPage = () => {
     useEffect(() => {
         fetchSimiliar({item, dispatch, setSimilarGoods})
     }, [item])
-
-    fetchUsers({dispatch})
 
   return (
     <div className={s.main}>

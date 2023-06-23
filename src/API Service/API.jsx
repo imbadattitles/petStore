@@ -1,4 +1,5 @@
 import { isLoading, fetchGoods, isSimilarLoading, fetchCategories, isCategoriesLoading } from "../store/goodsReducer"
+import { fetchUser, setAuth } from "../store/userReducer"
 
 
 export const fetchGoodsAction = async ({sort, search, category, page, dispatch}) => {
@@ -52,9 +53,26 @@ export const fetchSimiliar = async ({item, dispatch, setSimilarGoods}) => {
         console.log(e);
     }  
 }
-export const fetchUsers = async ({dispatch}) => {
-        fetch(`https://imbadattitles.com/api.php`).then(res => res.json()).then(json => {
-        console.log(json)
-        })
 
+export const FetchUsers = async ({dispatch, login, password, setError, router}) => {
+        fetch(`https://imbadattitles.com/api.php`).then(res => res.json()).then(json => {
+        let error = true
+        json.map((userApi) => {
+                if ((userApi.login === login) && (userApi.password === password)) {
+                    dispatch(setAuth(true))
+                    dispatch(fetchUser({name: login}))
+                    router(`/MainPage`)
+                    return error = false
+                }
+            })
+        if (error) {
+            setError('Логин или пароль введён неправильно')
+        }
+        })
+        
+}
+
+export const logOut = async ({dispatch}) => {
+    dispatch(setAuth(false))
+    dispatch(fetchUser({name: 'Незарегистрированный пользователь'}))
 }

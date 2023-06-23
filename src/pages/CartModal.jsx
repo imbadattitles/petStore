@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import s from '../styles/cartPage/cart.module.sass'
 import { deleteItems, setAmount} from '../store/cartReducer'
-import { MinusCount, PlusCount } from '../Hooks/CartHooks'
+import { countMath } from '../Hooks/CartHooks'
 
 const CartModal = ({modalOrPage}) => {
     
@@ -10,7 +10,7 @@ const items = useSelector(state => state.cart.items)
 const dispatch = useDispatch()
 const [allPrice, setAllPrice] = useState(0)
 const amountInCart = useSelector(state => state.cart.amount)
-
+const user = useSelector(state => state.user.user)
 
 useEffect(() => {
       let newAllPrice = items.reduce((accum, item) => {
@@ -23,6 +23,7 @@ useEffect(() => {
 
   return (
     <div className={modalOrPage}>
+      <p className={s.userName}>{user.name}</p>
         <p className={s.title}>В вашей корзине {amountInCart ? amountInCart : 'нет'} товаров</p>
         {items.length ? 
         <>
@@ -35,9 +36,9 @@ useEffect(() => {
                     <span className={s.price}><p>Цена одного товара</p> {item?.price} ₽</span>
                     <span className={s.totalPrice}><p>Цена всех товаров</p>{item?.totalPrice} ₽</span>
                     <div className={s.count}>
-                        <button className={s.countBtn} onClick={() => MinusCount({item, items, dispatch, amountInCart})}>-</button>
+                        <button className={s.countBtn} onClick={() => countMath({item, items, dispatch, amountInCart}, 'minus')}>-</button>
                         {item?.count} штук
-                        <button className={s.countBtn} onClick={() => PlusCount({item, items, dispatch, amountInCart})}>+</button>
+                        <button className={s.countBtn} onClick={() => countMath({item, items, dispatch, amountInCart}, 'plus')}>+</button>
                     </div>
                     <button className={s.deleteBtn} onClick={() => dispatch(deleteItems(item), dispatch(setAmount(amountInCart - item.count)))}>Убрать товар из корзины</button>
                 </div>

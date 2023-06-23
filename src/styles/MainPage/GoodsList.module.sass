@@ -11,6 +11,10 @@
     align-items: center
     margin-bottom: 20px
     align-content: flex-start
+    @media screen and (max-width: 900px)
+        flex-direction: column-reverse
+        margin: 20px 0 
+        
 
 .selectStyle
     margin-right: 10px
@@ -30,12 +34,20 @@
     margin-right: 20px
     outline: none
     border: 1px solid silver
+    @media screen and (max-width: 900px)
+        margin: 0
+        margin-bottom: 10px
+
     
     
 .ListColumns
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 20px
+    @media screen and (max-width: 900px)
+        grid-template-columns: repeat(1, 1fr)
+        gap: 10px
+    
 
 .card
     display: flex 
@@ -47,6 +59,11 @@
     border: 1px solid silver
     &:hover
         box-shadow: 0px 5px 15px rgba(black,.2 )
+    @media screen and (max-width: 900px)
+        width: 340px
+        margin: auto
+        margin-bottom: 20px
+    
 
 .photo
     width: 100%
@@ -100,6 +117,9 @@
 .pagination 
     display: flex 
     margin-top: 20px
+    @media screen and (max-width: 900px)
+        width: 340px
+        margin: auto
 
     div
         padding: 10px 20px

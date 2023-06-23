@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { fetchCategories, isCategoriesLoading, selectCategories } from '../store/goodsReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import s from '../styles/MainPage/GoodsChoose.module.sass'
 import { Skeleton } from '@mui/material'
@@ -8,6 +7,7 @@ import CategoryItem from './CategoryItem'
 
 const GoodsChoose = ({props}) => {
 
+const isAuth = useSelector(state => state.user.auth)
 const dispatch = useDispatch()
 const categories = useSelector(state => state.goods.categories)
 const loading = useSelector(state => state.goods.isCategoriesLoading)

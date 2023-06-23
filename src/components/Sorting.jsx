@@ -1,7 +1,7 @@
 import React from 'react'
 import MySelect from './MySelect'
 
-const Sorting = ({sort, setSort, selectStyle, optionStyle, searchValue, setSearchValue, searchStyle, sortingStyle}) => {
+const Sorting = ({setSort, selectStyle, optionStyle, searchValue, setSearchValue, searchStyle, sortingStyle}) => {
   return (
     <div className={sortingStyle}>
     <MySelect
