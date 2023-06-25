@@ -28,7 +28,7 @@ export const fetchCategoriesAction = async ({dispatch}) => {
 
 export const fetchItem = async ({id, dispatch, setItem}) => {
     dispatch(isLoading(true))
-    fetch(`https://6dgfgdf475381ae607ba4797dbb5ea.mockapi.io/photos?search=${id}`).then(res => res.json())
+    fetch(`https://6475381ae607ba4797dbb5ea.mockapi.io/photos?search=${id}`).then(res => res.json())
     .then(json => {
         setItem(json[0])
         dispatch(isLoading(false))

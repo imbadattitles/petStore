@@ -30,7 +30,7 @@ const Header = () => {
       }
                 
     </div>
-       <div onClick={() => setCartVisible(true)} className={s.cartIcon} style={{backgroundImage:'url(/images/shopping_cart.svg)'}}>
+       <div onClick={() => setCartVisible(true)} className={s.cartIcon} style={{backgroundImage:'url(./images/shopping_cart.svg)'}}>
         <span className={s.cartLength}>{amountInCart}</span>
         {
           cartVisible && <><CartModal modalOrPage={modalOrPage.modal}/></>
